@@ -172,7 +172,7 @@ jobs:
     - name: Build release binary
       shell: bash
       run: |
-        ${{ env.CARGO }} build --verbose --release --features pcre2 ${{ env.TARGET_FLAGS }}
+        ${{ env.CARGO }} build --verbose --release
         if [ "${{ matrix.os }}" = "windows-latest" ]; then
           bin="target/${{ matrix.target }}/release/pandora.exe"
         else
@@ -206,8 +206,7 @@ jobs:
       run: |
         mkdir -p "$ARCHIVE"/{complete,doc}
         cp "$BIN" "$ARCHIVE"/
-        cp {README.md,COPYING,UNLICENSE,LICENSE-MIT} "$ARCHIVE"/
-        cp {CHANGELOG.md,FAQ.md,GUIDE.md} "$ARCHIVE"/doc/
+
 
 
 
